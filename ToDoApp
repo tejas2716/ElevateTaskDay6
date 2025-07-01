@@ -1,0 +1,71 @@
+package elevate_Internship_Day_6;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
+
+public class ToDoApp {
+    public static void main(String[] args) {
+        new ToDoFrame();
+    }
+}
+
+class ToDoFrame extends JFrame {
+    private DefaultListModel<String> taskModel; // for JList
+    private JList<String> taskList;
+    private JTextField taskInput;
+    private JButton addButton, deleteButton;
+
+    public ToDoFrame() {
+        // Step 1: Set frame properties
+        setTitle("ToDo List App");
+        setSize(400, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // Center on screen
+
+        // Step 2: Initialize components
+        taskModel = new DefaultListModel<>();
+        taskList = new JList<>(taskModel);
+        taskInput = new JTextField();
+        addButton = new JButton("Add Task");
+        deleteButton = new JButton("Delete Selected");
+
+        // Step 3: Top panel for input
+        JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.add(taskInput, BorderLayout.CENTER);
+        inputPanel.add(addButton, BorderLayout.EAST);
+
+        // Step 4: Bottom panel for delete button
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.add(deleteButton);
+
+        // Step 5: Add to frame layout
+        add(inputPanel, BorderLayout.NORTH);
+        add(new JScrollPane(taskList), BorderLayout.CENTER);
+        add(bottomPanel, BorderLayout.SOUTH);
+
+        // Step 6: Add button action
+        addButton.addActionListener(e -> {
+            String task = taskInput.getText().trim();
+            if (!task.isEmpty()) {
+                taskModel.addElement(task);
+                taskInput.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Enter a task!");
+            }
+        });
+
+        // Step 7: Delete button action
+        deleteButton.addActionListener(e -> {
+            int selectedIndex = taskList.getSelectedIndex();
+            if (selectedIndex != -1) {
+                taskModel.remove(selectedIndex);
+            } else {
+                JOptionPane.showMessageDialog(this, "Select a task to delete.");
+            }
+        });
+
+        setVisible(true); // Show the frame
+    }
+}

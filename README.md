@@ -1,4 +1,8 @@
-**#Java Swing To-Do List App**
+**===Java Swing To-Do List App===**
+
+**#Developed by: Tejas Sathe**   
+**#MailId - sathetejas111@gmail.com**
+
 
 **#Description** 
 This is a simple **desktop GUI application** built using **Java Swing**. It allows users to manage a basic To-Do list by **adding** and **deleting** tasks.
@@ -18,10 +22,11 @@ The purpose of this project is to develop a desktop-based To-Do List application
 - Simple and user-friendly layout  
 
 **#Project Structure**
-elevate_Internship_Day_6/
-│
-├── ToDoApp.java # Main application class with GUI
+elevate_Internship_Day_6/      
+│    
+├── ToDoApp.java # Main application class with GUI      
 ├── README.md # Project documentation (this file)
+
 
 **#Key Concepts Used**
 
@@ -38,8 +43,8 @@ elevate_Internship_Day_6/
 | `BorderLayout`       | Layout manager to organize components  |
 
 
-**#How to Run the Program
-**
+**#How to Run the Program**
+
 1. **Open IntelliJ or Eclipse**.
 2. **Create a Java Project** and add the package `elevate_Internship_Day_6`.
 3. **Copy and paste `ToDoApp.java`** into the package.
